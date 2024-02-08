@@ -101,6 +101,12 @@ spec:
                 key: kube.events
                 name: argocd-image-updater-config
                 optional: true
+          - name: IMAGE_UPDATER_NAMESPACED
+            valueFrom:
+              configMapKeyRef:
+                key: namespaced
+                name: argocd-image-updater-config
+                optional: true
           {{- with .Values.extraEnv }}
             {{- toYaml . | nindent 10 }}
           {{- end }}
